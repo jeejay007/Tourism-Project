@@ -1,0 +1,8 @@
+pandas==2.2.2
+scikit-learn==1.6.1
+joblib==1.5.3
+xgboost==3.2.0
+huggingface_hub==1.8.0
+streamlit==1.56.0
+fastapi==0.135.2
+uvicorn==0.42.0
