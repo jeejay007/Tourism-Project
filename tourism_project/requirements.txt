@@ -7,3 +7,4 @@ streamlit==1.56.0
 fastapi==0.135.2
 uvicorn==0.42.0
 mlflow==3.0.1
+datasets==4.0.0
