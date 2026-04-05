@@ -1,3 +1,6 @@
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/97999084-6d20-4416-a6a3-efff87907e52" />
+
+
 ## **Business Context**
 
 "Visit with Us," a leading travel company, is revolutionizing the tourism industry by leveraging data-driven strategies to optimize operations and customer engagement. While introducing a new package offering, such as the Wellness Tourism Package, the company faces challenges in targeting the right customers efficiently. The manual approach to identifying potential customers is inconsistent, time-consuming, and prone to errors, leading to missed opportunities and suboptimal campaign performance.
