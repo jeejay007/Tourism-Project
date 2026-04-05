@@ -38,3 +38,48 @@ The dataset contains customer and interaction data that serve as key attributes 
 - **ProductPitched:** The type of product pitched to the customer.
 - **NumberOfFollowups:** Total number of follow-ups by the salesperson after the sales pitch.-
 - **DurationOfPitch:** Duration of the sales pitch delivered to the customer.
+
+Designing an MLOps pipeline for "Visit with Us" requires a robust architecture that transitions from a "notebook" mindset to a production-ready system. Below is the technical blueprint for your end-to-end automated workflow using GitHub Actions and Python-based MLOps tools.
+
+🏗️ MLOps Pipeline Architecture
+The system is divided into four main stages to ensure modularity and scalability.
+
+1. Data Engineering: Ingestion from source, cleaning (handling missing Age or MonthlyIncome), and feature engineering.
+
+2. Model Training: Experiment tracking and hyperparameter tuning.
+
+3. CI/CD Pipeline: GitHub Actions to automate testing and deployment.
+
+4. Deployment: Serving the model via a REST API (FastAPI) inside a Docker container.
+
+📂 Project Structure
+To maintain CI/CD standards, organize your GitHub repository as follows:
+
+Tourism-Project/
+│
+├── tourism_project/            ✅ main project
+│   ├── data/
+│       ├── tourism.csv
+│   ├── deployment/
+│   │   ├── app.py
+│   │   ├── Dockerfile
+│   │   ├── requirements.txt
+│   ├── hosting/
+│   ├── model_building/
+├── README.md
+├── .gitignore
+
+
+🛠️ Implementation Steps
+
+1. Data Preprocessing & TransformationGiven the data dictionary, we must handle specific challenges like categorical encoding and missing values.
+   Imputation: Use Median for Age and MonthlyIncome to avoid outlier skewness.
+   Encoding: * One-Hot Encoding: Occupation, Gender, MaritalStatus.Ordinal Encoding: CityTier ($Tier 1 > Tier 2 > Tier 3$), Designation.Feature
+   Scaling: Standardize MonthlyIncome and DurationOfPitch.
+3. Model Development
+   For predicting ProdTaken (Binary Classification), XGBoost or Random Forest are ideal due to their ability to handle non-linear relationships and mixed data types.Evaluation
+   Metric: Since marketing costs are involved, focus on Precision (minimizing false positives/wasted calls) and F1-Score to balance targeting efficiency.
+5. CI/CD with GitHub Actions
+     Create a .yml file in .github/workflows/main.yml to automate the lifecycle:TriggerActionPush to MainRun unit tests on preprocessing logic.Pull RequestExecute train.py and log performance metrics.MergeBuild Docker Image and push to Container Registry (e.g., GHCR).
+
+   
