@@ -11,7 +11,7 @@ from huggingface_hub import hf_hub_download
 
 # --- 1. GLOBAL CONFIGURATION ---
 REPO_ID = "GauthamJ007/VisitWithUs-Wellness-Tourism-Predictor"
-FILENAME = "xgboost_model.joblib"
+FILENAME = "tourism_pipeline.joblib"
 
 # --- 2. BACKEND: FastAPI Setup ---
 app = FastAPI(title="Visit with Us - Backend API")
